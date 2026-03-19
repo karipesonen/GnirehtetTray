@@ -97,9 +97,8 @@ Right-click for Start / Stop / Restart / Logs.
 
 Logs are written to:
 
-logs\autorun-latest.log
-logs\relay-latest.log
-
+- `logs\autorun-latest.log`
+- `logs\relay-latest.log`
 
 Use these if troubleshooting.
 
