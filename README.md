@@ -39,11 +39,10 @@ Place the following into the same directory:
 
 Example final folder:
 
-gnirehtet.exe
-adb.exe
-GnirehtetTray.exe
-assets/
-
+- `gnirehtet.exe`
+- `adb.exe`
+- `GnirehtetTray.exe`
+- `assets/`
 
 ---
 
@@ -120,11 +119,12 @@ Use these if troubleshooting.
 
 Run in **Command Prompt**:
 
+```
 taskkill /f /im explorer.exe
 del %localappdata%\IconCache.db
 del %localappdata%\Microsoft\Windows\Explorer\iconcache*
 start explorer.exe
-
+```
 
 ---
 
@@ -134,8 +134,9 @@ Requires AutoIt.
 
 Compile using Command Prompt:
 
+```
 "C:\Program Files (x86)\AutoIt3\Aut2Exe\Aut2exe.exe" /in "GnirehtetTray.au3" /out "GnirehtetTray.exe" /icon "assets\app.ico" /x64
-
+```
 
 Most users do not need this.
 
