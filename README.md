@@ -35,7 +35,7 @@ After installation you should have:
 Place the following into the same directory:
 
 - `GnirehtetTray.exe`
-- `assets/` (if included in the release)
+- `assets/`
 
 Example final folder:
 
