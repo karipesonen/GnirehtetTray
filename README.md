@@ -146,3 +146,11 @@ This project (GnirehtetTray) is licensed under the **MIT License**.
 gnirehtet and Android platform-tools are licensed under the **Apache License 2.0**.
 
 This repository does **not** redistribute those binaries.
+
+---
+
+## Support
+
+If this project saves you time, you can support it here:
+
+☕ https://buymeacoffee.com/karipesonen
