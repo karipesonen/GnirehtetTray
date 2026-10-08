@@ -5,24 +5,44 @@ A lightweight Windows tray wrapper for **gnirehtet**.
 Official project:  
 https://github.com/Genymobile/gnirehtet
 
+It runs `gnirehtet relay` in the background and sends `gnirehtet start` to start the phone client. Repairs use `gnirehtet restart`; this version does not run `gnirehtet autorun`.
+
 > This project is an unofficial wrapper and is not affiliated with Genymobile.
 
 ---
 
-## Quick Installation
+## Quick Installation (Most Users)
 
-1. Install gnirehtet normally from the official project.
-2. Extract the GnirehtetTray release files into the same folder as `gnirehtet.exe` and `adb.exe`.
-3. Run `GnirehtetTray.exe`.
+### 1. Install gnirehtet normally
 
-The app expects these files beside `GnirehtetTray.exe`:
+Follow the official instructions:  
+https://github.com/Genymobile/gnirehtet
+
+### 2. Copy GnirehtetTray into that same folder
+
+Extract the [GnirehtetTray release ZIP](https://github.com/karipesonen/GnirehtetTray/releases/latest) into the folder containing `gnirehtet.exe` and `adb.exe`.
+
+Example final folder:
 
 - `gnirehtet.exe`
 - `adb.exe`
 - `AdbWinApi.dll`
 - `AdbWinUsbApi.dll`
+- `GnirehtetTray.exe`
 - `assets\`
 - `helpers\`
+- `scripts\setup-no-uac.ps1`
+
+### 3. Run GnirehtetTray.exe
+
+Double-click `GnirehtetTray.exe`.
+
+It will:
+
+- Start the relay and phone client in the background
+- Show a tray icon with status and controls
+
+No AutoIt required to run the release.
 
 ---
 
@@ -97,15 +117,50 @@ Hover the tray icon to see status details. Right-click for Connect / repair, Dis
 
 Startup and disconnect are intentionally bounded so the tray stays responsive; Android and gnirehtet may still need a few seconds to settle afterward. During that window the tray holds an explicit `Starting`, `Repairing`, or `Stopping` state instead of treating each intermediate check as a final failure.
 
-## Development
+---
 
-The development project is intended to live at:
+## Optional: Start at Login
 
-```text
-C:\Users\karip\Documents\Code\GnirehtetTray
-```
+1. Press `Win + R`
+2. Type: `shell:startup`
+3. Add a shortcut to `GnirehtetTray.exe`
 
-Build only:
+---
+
+## Log Files
+
+Logs are written to:
+
+- `logs\relay-latest.log`
+- `logs\tray-actions.log`
+
+Use these if troubleshooting. This version does not create `autorun-latest.log`.
+
+---
+
+## Troubleshooting
+
+### Device shows "unauthorized"
+
+1. Disconnect USB
+2. Reconnect
+3. Accept the RSA prompt on the phone
+
+### Connection does not return after unplug/replug
+
+Use `Connect / repair` in the tray menu or click the no-UAC taskbar shortcut. Automatic recovery may take time; a green icon does not prove internet traffic works.
+
+### Taskbar icon appears incorrect after pinning
+
+Unpin the old shortcut, run `scripts\setup-no-uac.ps1` again, and pin the updated `GnirehtetTray.lnk`. If the icon remains stale, restart Windows Explorer from Task Manager.
+
+---
+
+## Building From Source (Developers)
+
+Requires AutoIt 3. Run these commands from the repository folder; it can live anywhere.
+
+Build the executable into `build\` without launching it:
 
 ```powershell
 .\scripts\build.ps1
@@ -125,6 +180,15 @@ Create a release ZIP:
 
 See `DEVELOPMENT.md` for the folder layout.
 
+The scripts use AutoIt's `Aut2Exe` compiler; `build.ps1` also runs `Au3Check` first. Direct compilation still works if you prefer it.
+
+Create the output folder and compile directly from Command Prompt:
+
+```cmd
+if not exist build mkdir build
+"C:\Program Files (x86)\AutoIt3\Aut2Exe\Aut2Exe.exe" /in "src\GnirehtetTray.au3" /out "build\GnirehtetTray.exe" /icon "assets\app.ico" /x64
+```
+
 ---
 
 ## Licensing
@@ -135,4 +199,10 @@ gnirehtet and Android platform-tools are licensed under the **Apache License 2.0
 
 This repository does **not** redistribute those binaries.
 
+---
 
+## Support
+
+If this project saves you time, you can support it here:
+
+https://buymeacoffee.com/karipesonen

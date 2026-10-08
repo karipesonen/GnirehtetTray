@@ -2,8 +2,8 @@
 ; Compile-time metadata
 ; =========================================================
 #AutoIt3Wrapper_Icon=assets\app.ico
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.0
-#AutoIt3Wrapper_Res_ProductVersion=1.0.0.0
+#AutoIt3Wrapper_Res_Fileversion=1.1.0.0
+#AutoIt3Wrapper_Res_ProductVersion=1.1.0.0
 #AutoIt3Wrapper_Res_ProductName=GnirehtetTray
 #AutoIt3Wrapper_Res_Description=Tray wrapper for gnirehtet
 
