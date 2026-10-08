@@ -1,0 +1,10 @@
+/build/
+/run/
+/dist/
+/logs/
+*.lnk
+*.bak
+*.tmp
+.a3x
+.tok
+.git.broken-*
